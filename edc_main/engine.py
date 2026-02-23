@@ -8,11 +8,12 @@ Adding a new check is two lines: import it, add it to _CHECKS.
 import asyncio
 from motor.motor_asyncio import AsyncIOMotorDatabase
 
-from smurf_check.structuring import check_structuring
+from checks.structuring import check_structuring
+from checks.rapid import check_rapid
 
 
 # ── Register checks here — order does not matter (all run in parallel) ────────
-_CHECKS = [check_structuring]
+_CHECKS = [check_structuring, check_rapid]
 
 
 def _aggregate(results: list[dict]) -> tuple[int, str, str]:

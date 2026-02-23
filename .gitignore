@@ -13,3 +13,5 @@ database_search.py
 deposits_over_2.txt
 
 transactions_over_2.txt
+
+tests/
