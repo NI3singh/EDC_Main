@@ -30,6 +30,9 @@ class EDCResponse(BaseModel):
     final_level: str
     final_action: str
 
+    # Which checks actually triggered (empty list = all clean)
+    triggered_by: list[str] = []
+    
     # Per-check detail
     checks: list[CheckResult]
 
@@ -39,10 +42,11 @@ class EDCResponse(BaseModel):
                 "transaction_id": "txn_abc",
                 "user_id": "user_123",
                 "txn_type": "DEPOSIT",
-                "amount": 5000.0,
-                "final_score": 95,
-                "final_level": "critical",
-                "final_action": "block",
+                "amount": 15000.0,
+                "final_score": 85,
+                "final_level": "high",
+                "final_action": "flag",
+                "triggered_by":   ["velocity"],
                 "checks": []
             }
         }
